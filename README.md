@@ -1,24 +1,26 @@
 # AirTransit CLI 🚀
 
-**AirTransit** is a lightweight, zero-dependency command-line file sharing tool designed to traverse highly restrictive school, university, and corporate firewalls (including Symmetric NATs) where traditional WebRTC or P2P connections fail.
+**AirTransit** is a Python command-line tool for sharing files through the Catbox HTTPS service, with short download codes and terminal QR codes. It uses a hosted relay instead of a direct peer-to-peer connection.
 
-It provides a completely anonymous, registration-free, and QR-code friendly way to send files between your computers and mobile devices.
+Project maintainer: [Kaan Demir](https://kaahn.com/hakkimda/) (Oğuz Kaan Demir), software developer in Istanbul.
+
+No Catbox account is required by the upload command. Files are uploaded to a third-party host, and the download URL is also sent to qrenco.de to generate the terminal QR code.
 
 ---
 
 ## Features
-* **Symmetric NAT Traversal**: Uses secure HTTPS (Port 443) relays, ensuring traffic is never blocked by strict firewalls (like 42 networks).
-* **Zero Dependencies**: Written in pure Python 3 using standard libraries (`urllib`, `tkinter`, etc.). No `pip install` required!
-* **Short Codes**: Generates short 6-character transfer codes (e.g. `f8agka.txt`) so you don't have to type long URLs.
+* **HTTPS Relay**: Uploads and downloads through Catbox, avoiding the need for a direct P2P connection. Availability depends on the network and service.
+* **No Python Package Dependencies**: Uses the Python 3 standard library. No `pip install` required; Catbox and qrenco.de are external services.
+* **Short Codes**: Uses the filename returned by Catbox (e.g. `f8agka.txt`) so you don't have to type long URLs.
 * **Terminal QR Codes**: Renders a scannable ASCII QR code directly on your terminal screen when sending a file, allowing you to download files on your phone instantly.
-* **Anonymous & Secure**: No accounts or sign-ups required. Files are encrypted in transit via TLS.
+* **HTTPS Uploads**: The upload endpoint uses TLS. The tool does not encrypt file contents before uploading or add access control to the returned link.
 
 ---
 
 ## How It Works (The Traversal)
-In strict networks (like the 42 school network), routers employ a **Symmetric NAT** which dynamically rewrites your external port mapping for every new destination IP you connect to. This completely breaks standard WebRTC hole punching. 
+Direct peer-to-peer transfers can fail behind restrictive NAT or firewall configurations. AirTransit instead uploads the file to Catbox and downloads it through the returned URL.
 
-AirTransit bypasses this by uploading and downloading files directly through standard HTTPS web endpoints. Since HTTPS traffic on port 443 is required for normal web browsing, it is never blocked by firewalls. Under the hood, files are temporarily hosted on a free anonymous storage relay (Catbox.moe) for up to 200MB per file.
+The CLI enforces a 200MB upload limit. It does not set a deletion time for hosted files. HTTPS access to the service can still be blocked by a network's rules.
 
 ---
 
@@ -27,7 +29,7 @@ AirTransit bypasses this by uploading and downloading files directly through sta
 ### macOS & Linux
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ogudemir/transfer.git ~/kaahn/dev/transfer
+   git clone https://github.com/kaahndemir/transfer.git ~/kaahn/dev/transfer
    cd ~/kaahn/dev/transfer
    ```
 2. Run the installer script:
