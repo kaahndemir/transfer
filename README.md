@@ -81,3 +81,10 @@ Scan to Download:
 
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+## Review and citation
+
+See [review notes and offline checks](docs/review-notes.md) for a reproducible,
+network-free walkthrough and the data-path limitations. Use GitHub's **Cite this
+repository** menu, backed by [CITATION.cff](CITATION.cff), and include the commit
+you reviewed when referencing the implementation.

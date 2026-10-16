@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you discuss or use AirTransit, cite this repository and the commit you reviewed."
+title: "AirTransit CLI"
+type: software
+authors:
+  - family-names: "Demir"
+    given-names: "Kaan"
+    website: "https://kaahn.com/hakkimda/"
+repository-code: "https://github.com/kaahndemir/transfer"
+url: "https://kaahn.com/en/projects/airtransit/"
+abstract: "A Python standard-library CLI for file uploads and downloads through the Catbox HTTPS service, with short codes and externally generated terminal QR codes."
+license: MIT
+keywords:
+  - python
+  - command-line
+  - file-transfer

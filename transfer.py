@@ -15,7 +15,7 @@ CYAN = "\033[36m"
 MAGENTA = "\033[35m"
 
 def print_help():
-    print(f"""{BOLD}{CYAN}AirTransit CLI{RESET} - Traverses strict school/NAT networks securely.
+    print(f"""{BOLD}{CYAN}AirTransit CLI{RESET} - Share files through the Catbox HTTPS service.
 
 {BOLD}Usage:{RESET}
   transfer send <filepath>        {YELLOW}Upload a file (up to 200MB){RESET}
